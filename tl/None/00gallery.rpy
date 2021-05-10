@@ -200,8 +200,8 @@ init -1500 python:
 
         transition = None
 
-        hover_border = None
-        idle_border = None
+        hover_border = True
+        idle_border = True
 
         locked_button = None
 
@@ -341,7 +341,7 @@ init -1500 python:
             else:
                 return None
 
-        def make_button(self, name, unlocked, locked=None, hover_border=None, idle_border=None, style=None, **properties):
+        def make_button(self, name, unlocked, locked=None, hover_border=True, idle_border=True, style=None, **properties):
             """
             :doc: gallery method
 
@@ -603,21 +603,37 @@ init -1500:
             use gallery_navigation
 
     screen gallery_navigation:
+
         hbox:
-            spacing 20
+            spacing 550
 
             style_group "gallery"
-            align (.5, .98)
+            align (0.5, 0.0)
 
-            textbutton _("prev") action gallery.Previous(unlocked=gallery.unlocked_advance)
-            textbutton _("return") action gallery.Return()
-            textbutton _("next") action gallery.Next(unlocked=gallery.unlocked_advance)
-            #textbutton _("slideshow") action gallery.ToggleSlideshow()
+            imagebutton:
+                ypos 360
+                idle "gui/button/prev_button.png"
+                hover "gui/button/prev_button_hover.png"
+                action gallery.Previous(unlocked=gallery.unlocked_advance)
+            #textbutton _("prev") action gallery.Previous(unlocked=gallery.unlocked_advance)
+            imagebutton:
+                ypos 660
+                idle "gui/button/back_button.png"
+                hover "gui/button/back_button_hover.png"
+                action gallery.Return()
+            #textbutton _("return") action gallery.Return()
+            imagebutton:
+                ypos 360
+                idle "gui/button/next_button.png"
+                hover "gui/button/next_button_hover.png"
+                action gallery.Next(unlocked=gallery.unlocked_advance)
+            #textbutton _("next") action gallery.Next(unlocked=gallery.unlocked_advance)
 
     python:
         style.gallery = Style(style.default)
-        style.gallery_button.background = "#000"
+        style.gallery_button.background = "#0009"
+        style.gallery_button.hover_background = "#bb5d3280"
         style.gallery_button_text.color = "#caada1"
-        style.gallery_button_text.hover_color = "#fff"
+        style.gallery_button_text.hover_color = "#000"
         style.gallery_button_text.selected_color = "#fff"
-        style.gallery_button_text.size = 16
+        style.gallery_button_text.size = 25

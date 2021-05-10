@@ -907,11 +907,11 @@ translate None strings:
 
     # renpy/common/00gallery.rpy:612
     old "prev"
-    new "{size=20}|<<{/size}"
+    new "{size=30}«{/size}"
 
     # renpy/common/00gallery.rpy:613
     old "next"
-    new "{size=20}>>|{/size}"
+    new "{size=30}»{/size}"
 
     # renpy/common/00gallery.rpy:614
     old "slideshow"
@@ -919,7 +919,7 @@ translate None strings:
 
     # renpy/common/00gallery.rpy:615
     old "return"
-    new "{size=20}Back{/size}"
+    new "{size=25}Back{/size}"
 
     # renpy/common/00gltest.rpy:70
     old "Renderer"
