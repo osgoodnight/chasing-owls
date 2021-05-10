@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -8,7 +8,6 @@ init offset = -1
 ################################################################################
 ## Styles
 ################################################################################
-
 style default:
     properties gui.text_properties()
     language gui.language
@@ -31,7 +30,6 @@ style button:
 style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
-
 
 style label_text is gui_text:
     properties gui.text_properties("label", accent=True)
@@ -75,8 +73,6 @@ style frame:
     padding gui.frame_borders.padding
     background Frame("gui/frame.png", gui.frame_borders, tile=gui.frame_tile)
 
-
-
 ################################################################################
 ## In-game screens
 ################################################################################
@@ -109,7 +105,8 @@ screen say(who, what):
                 text who id "who"
 
         text what id "what"
-    text "{b}Day [day]{/b}" at topleft
+    frame:
+        text "{b}Day [day]{/b}" xalign 0.01 yalign 0.01
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
@@ -202,12 +199,64 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
-screen choice(items):
+## Shuffle Choice Menus ########################################################
+init python:
+    shuffle_items = range(20)
+
+    def shuffle_menu():
+        global shuffle_items
+        shuffle_items = range(20)
+        shuffle_items.sort(key=lambda x:renpy.random.random())
+        return
+
+    def unshuffle_menu():
+        global shuffle_items
+        shuffle_items = range(20)
+        return
+
+screen choice:
     style_prefix "choice"
 
-    vbox:
-        for i in items:
-            textbutton i.caption action i.action
+    window:
+        style "menu_window"
+        xalign 0.5
+        #yalign 0.5
+
+        vbox:
+            #style "menu"
+            spacing gui.choice_spacing
+
+            for index in shuffle_items:
+                if index < len(items):
+                    $caption, action, chosen = items[index]
+                    if action:
+
+                        button:
+                            style "choice_button"
+                            action action
+
+
+                            text caption style "choice_button_text"
+
+                    else:
+                        text caption style "caption"
+
+init -2 python:
+    config.narrator_menu = True
+
+    style.menu_window.set_parent(style.default)
+    style.menu_choice.set_parent(style.button_text)
+    style.menu_choice.clear()
+    style.menu_choice_button.set_parent(style.button)
+    style.menu_choice_button.xminimum = int(config.screen_width * 0.75)
+    style.menu_choice_button.xmaximum = int(config.screen_width * 0.75)
+
+#screen choice(items):
+    #style_prefix "choice"
+
+    #vbox:
+        #for i in items:
+            #textbutton i.caption action i.action
 
 
 ## When this is true, menu captions will be spoken by the narrator. When false,
@@ -337,10 +386,10 @@ screen navigation():
             textbutton "{size=30}Load{/size}" action ShowMenu("load")
 
         frame:
-            if persistent.ending_unlock:
+            if persistent.gallery_unlock:
                 textbutton "{size=30}Galleries{/size}" action ShowMenu("gallery_main")
             else:
-                textbutton "{size=30}Galleries{/size}" action Return()
+                textbutton "{size=30}Galleries{/size}" action None
 
         frame:
             textbutton "{size=30}Preferences{/size}" action ShowMenu("preferences")
@@ -603,12 +652,12 @@ screen gallery_main():
 
         vbox:
             spacing 40
-            xpos 0.5
+            xpos 0.3
             ypos 0.2
-            frame:
-                xanchor 0.5
-                xalign 0.5
-                textbutton _("{size=70}CG Gallery{/size}") action ShowMenu("cg")
+            #frame:
+                #xanchor 0.5
+                #xalign 0.5
+                #textbutton _("{size=70}CG Gallery{/size}") action ShowMenu("cg")
             frame:
                 xanchor 0.5
                 xalign 0.5
@@ -617,6 +666,10 @@ screen gallery_main():
                 xanchor 0.5
                 xalign 0.5
                 textbutton _("{size=70}Music Gallery{/size}") action ShowMenu("music_room")
+            frame:
+                xanchor 0.5
+                xalign 0.5
+                textbutton _("{size=70}Character Gallery{/size}") action ShowMenu("sprites")
 
     add "gui/overlay/galleries_title.png"
 ## About screen ################################################################
@@ -811,7 +864,7 @@ screen preferences():
         vbox:
 
             hbox:
-                box_wrap True
+                box_wrap False
 
                 if renpy.variant("pc") or renpy.variant("web"):
 
@@ -842,6 +895,13 @@ screen preferences():
                     label _("Language")
                     textbutton "English" action Language(None)
                     textbutton "Español (US)" action Language("spanish")
+                    #textbutton "{size=25}{font=fonts/Mangal.TTF}हिंदी{/font}{/size}" action Language("hindi")
+
+                vbox:
+                    style_prefix "radio"
+                    label _("Notifications")
+                    textbutton _("On") action SetVariable("notify", True)
+                    textbutton _("Off") action SetVariable("notify", False)
 
             null height (4 * gui.pref_spacing)
 
@@ -1303,7 +1363,7 @@ screen skip_indicator():
     frame:
 
         hbox:
-            spacing 6
+            spacing 5
 
             text _("Skipping")
 
@@ -1332,6 +1392,7 @@ style skip_triangle is skip_text
 
 style skip_frame:
     ypos gui.skip_ypos
+    xpos gui.skip_xpos
     background Frame("gui/skip.png", gui.skip_frame_borders, tile=gui.frame_tile)
     padding gui.skip_frame_borders.padding
 
@@ -1350,17 +1411,18 @@ style skip_triangle:
 ## the game is quicksaved or a screenshot has been taken.)
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#notify-screen
-
+default notify = True
 screen notify(message):
 
-    zorder 100
-    style_prefix "notify"
+    if notify:
 
-    frame at notify_appear:
-        text "[message!tq]"
+        zorder 100
+        style_prefix "notify"
 
-    timer 3.25 action Hide('notify')
+        frame at notify_appear:
+            text "[message!tq]"
 
+        timer 3.25 action Hide('notify')
 
 transform notify_appear:
     on show:
@@ -1557,7 +1619,7 @@ style game_menu_outer_frame:
 
 style game_menu_navigation_frame:
     variant "small"
-    xsize 340
+    xsize 100
 
 style game_menu_content_frame:
     variant "small"
