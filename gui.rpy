@@ -1,4 +1,4 @@
-﻿################################################################################
+################################################################################
 ## Initialization
 ################################################################################
 
@@ -86,6 +86,15 @@ define gui.title_text_size = 50
 define gui.main_menu_background = "gui/main_menu.png"
 define gui.game_menu_background = "gui/game_menu.png"
 
+## Mouse Configuration #########################################################
+
+define config.mouse = {"default":[ ("gui/cursor.cur", 1, 1) ] }
+
+init python:
+
+    if renpy.variant("web"):
+
+        config.mouse = False
 
 ## Dialogue ####################################################################
 ##
@@ -248,7 +257,8 @@ define gui.file_slot_rows = 2
 define gui.navigation_xpos = 10
 
 ## The vertical position of the skip indicator.
-define gui.skip_ypos = 10
+define gui.skip_ypos = 1
+define gui.skip_xpos = 1115
 
 ## The vertical position of the notify screen.
 define gui.notify_ypos = 45
@@ -260,10 +270,10 @@ define gui.choice_spacing = 22
 define gui.navigation_spacing = 4
 
 ## Controls the amount of spacing between preferences.
-define gui.pref_spacing = 10
+define gui.pref_spacing = 20
 
 ## Controls the amount of spacing between preference buttons.
-define gui.pref_button_spacing = 20
+define gui.pref_button_spacing = 10
 
 ## The spacing between file page buttons.
 define gui.page_spacing = 0
@@ -285,13 +295,13 @@ define gui.pref_music_text_spacing = 15
 ## components when an overlay or window is not present.
 
 ## Generic frames.
-define gui.frame_borders = Borders(8, 4, 8, 4)
+define gui.frame_borders = Borders(4, 4, 4, 4)
 
 ## The frame that is used as part of the confirm screen.
 define gui.confirm_frame_borders = Borders(40, 40, 40, 40)
 
 ## The frame that is used as part of the skip screen.
-define gui.skip_frame_borders = Borders(16, 5, 50, 5)
+define gui.skip_frame_borders = Borders(50, 5, 10, 5)
 
 ## The frame that is used as part of the notify screen.
 define gui.notify_frame_borders = Borders(16, 5, 40, 5)
@@ -435,17 +445,17 @@ init python:
         gui.label_text_size = 34
 
         ## Adjust the location of the textbox.
-        gui.textbox_height = 240
+        gui.textbox_height = 200
         gui.name_xpos = 80
         gui.text_xpos = 90
         gui.text_width = 1100
 
         ## Change the size and spacing of various things.
-        gui.slider_size = 36
+        gui.slider_size = 40
 
         gui.choice_button_width = 1240
 
-        gui.navigation_spacing = 20
+        gui.navigation_spacing = 10
         gui.pref_button_spacing = 10
 
         gui.history_height = 190
@@ -454,11 +464,11 @@ init python:
         gui.quick_button_text_size = 20
 
         ## File button layout.
-        gui.file_slot_cols = 2
+        gui.file_slot_cols = 3
         gui.file_slot_rows = 2
 
         ## NVL-mode.
-        gui.nvl_height = 170
+        gui.nvl_height = 100
 
         gui.nvl_name_width = 305
         gui.nvl_name_xpos = 325
