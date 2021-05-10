@@ -1,13 +1,15 @@
 label day3:
     scene nightmare with flash2
-    play sound night loop
+    $ persistent.unlock_nightmare = True
+    $ renpy.notify("New Background Unlocked")
+    play music suspense
     "{i}Where am I?{/i}"
     "{i}The last thing I remember was...{/i}"
 
     uv "{size=30}วเรน์...นะ...{/size}"
 
     w "{i}What? Who's that? Is that thai?{/i}"
-    show somchai sad at pos5
+    show somchai sad at pos5 with dissolve
     s "{size=30}ขอโทษ...วเรน์...{/size}"
 
     w "{i}Somchai what are you doing here?{/i}"
@@ -21,7 +23,9 @@ label day3:
     "{i}When I look back, Somchai is gone.{/i}"
     w "{i}Somchai? Somchai, where'd you go?{/i}"
     show blk with flash1
-    #show death
+    show figure with dissolve
+    $ persistent.figure = True
+    $ renpy.notify("New Character Unlocked")
     "{i}Infront of me a strange being appears in front of me. Dark from top to bottom.{/i}"
     "{i}I couldn't see his face but he has to have one...{w} right?{/i}"
     w "{i}Who..What are you?{/i}"
@@ -31,14 +35,14 @@ label day3:
     w "{i}Of course I don't, what type of question is that?
     If I had it my way I would never hurt again.{/i}"
     f "{i}The boys aren't your main problem. Be wary.{/i}"
-    #hide death
+    hide figure with flash1
     w "{i}Wait! Don't leave! Who are you? Who else should I be watching?{/i}"
     show blk with flash1
     show somchai reg at pos3
     show dominic reg at pos7
     "{i}Somchai and Dominic stand before Wren.{/i}"
     w "{i}What are you guys doing here?{/i}"
-    stop sound
+    stop music fadeout 2.5
     show bg02 with flash2
     hide somchai
     hide dominic
@@ -53,17 +57,20 @@ label day3:
     "5 AM?!??!"
 
     """
-    Ugh am I going to have a repeat of yesterday?{w} Wait…{w} \"repeat\"...
-    That figure said that… What does he mean by that?
+    Ugh am I going to have a repeat of yesterday?{w} Wait…{w} \"repeat\"...{w}
+    That figure said that…
+
+    What does he mean by that?
 
     And what are these other problems that I have…{w} or will have.
 
     UGH~! I’m having a headache again. Today is going to be worse
     than yesterday isn’t it? Well I better try and go back to sleep… hopefully.
     """
-    hide bg02
-    show blk
     hide wren
+    hide bg02 with fade
+    show blk
+
 
     """
     Wren tosses and turns for the next hour thinking of nothing but what that figure has said.
@@ -94,7 +101,7 @@ label day3:
     From that point on, the shaman told my father and that set this whole
     \"you’re the next chief\" thing in motion.
 
-    Also, it probably doesn’t help that I'm a two-spirit, too… Originally, I was hoping to get out of the tribe for a
+    Also, it probably doesn’t help that I'm a two-spirit, too... Originally, I was hoping to get out of the tribe for a
     bit to do many things I wanted to do in life. That’s why I wanted to go to
     school off the reservation.
 
@@ -102,25 +109,31 @@ label day3:
     It just isn’t the life I want to live. The people are great and I love my family,
     however I just don’t want to be told how to live my life.
     """
-    stop sound
+    stop sound fadeout 2.5
     scene bg03
     show wren sad at pos4dwn
     "Several moments, and some tears later, Wren sits in his living room waiting for Kyran to come get him."
     "Even though I don’t have any classes today, I still spend my time at the school to get some work done.
     Also later… I have some dates."
     show kyran reg at pos7 with easeinright
-    play music theme
+    play music theme1
     k "Wow you look like hell. Did you sleep?"
-    w "Only just enough…"
+    w "Only just enough..."
     k "What happened?"
 ################################################################################
+    $ shuffle_menu()
     menu:
+        "Should I tell him about my nightmare?"
+
         "Don't tell him.":
             $ somchai_points += 1
+
             w "It’s fine I just couldn’t sleep from the stress of yesterday."
             jump day3morn
+
         "Tell him.":
             $ dominic_points += 1
+
             w "Well, I had a nightmare and was woken up in a cold sweat…"
             "Wren spends the next few minutes explaining his nightmare to Kyran.
             Kyran fights the urge to fight the imaginary figure Wren was talking about."
@@ -137,16 +150,18 @@ label day3morn:
     "Kyran and Wren both get up and head out the door."
     scene bg05
     "After heading to school. Wren and Kyran go their separate ways."
-    show wren reg at pos7
-    show kyran reg at pos4
+    show wren reg at pos7 with dissolve
+    show kyran reg at pos4 with dissolve
     k "I’ll see you after class Wren. Try not to do anything I wouldn’t do."
     w "No promises."
-    "Damn, and I was totally planning on doing all the bad things…"
+    "Damn, and I was totally planning on doing all the bad things..."
     hide kyran with easeoutleft
     "Wren watches as Kyran walks off into the distance. He goes to the school’s
     cafe to study and do some of his assignments for his classes."
+    stop music
     hide wren
-    show bg16
+    show bg16 with fade
+    play music cafe fadein 3.0
     hide bg05
     show wren reg at pos7dwn
     "Ugh~ Why do teachers have to give us so many assignments?"
@@ -181,21 +196,21 @@ label day3morn:
     show wren surprised
     "What? He’s already here?"
     "Wren looks up to see that big beautiful himbo who is chasing his heart"
-    show dominic happy at pos2 with easeinleft
+    show dominic happy at pos1 with easeinleft
     d "Is this seat taken?"
     w "How did you get here so fast?"
     show dominic at pos3dwn with move
     d "Good. I was hoping you’d be alone."
     "He didn’t answer my question…"
     w "Sorry, let me rephrase that. How did you get here so fast?"
-    play music theme
+    play music theme1
     d "Actually, I was thinking about you last night and when I woke up I really
     wanted to see you. So, I came here earlier than I usually do hoping that I could see you."
     show wren happy blush
-    w "Oh, that’s sweet…{w} and kind of creepy…{w} but in a cute way."
+    w "Oh, that’s sweet...{w} and kind of creepy…{w} but in a cute way."
     "I dropped the pencil I was holding and put my hand flat on the table."
     w "So, what made you want to talk to me? I’m not exactly most guys’ first choice in general."
-    "Dominic looks down at my hand and grabs it gently"
+    "Dominic looks down at my hand and grabs it gently."
     d "I’m not quite sure honestly… I looked at you from across the field and
     suddenly wanted to talk to you. And when I got closer and looked into your
     eyes I knew at that moment I needed you in my life."
@@ -203,19 +218,19 @@ label day3morn:
     show dominic thinking
     pause 1.0
     show dominic happy
-    d "High school english class… or was it in a show I saw?"
+    d "High school english class... or was it in a show I saw?"
     w "Also, Why are you holding my hand?"
     show dominic happy blush
     d "Because I want everyone here to know that you are the one my heart wants."
     w "Gosh, please stop talking like that you’re giving me goosebumps. You can’t
     be telling the truth. Did someone put you up to this? Am I being Pranked?"
     show wren thinking
-    "I quickly look around the room for hidden cameras"
+    "I quickly look around the room for hidden cameras..."
     show dominic reg
     pause 1.0
     d "What are you doing?"
     show wren reg
-    w "Is Ashton Kuture or Jason Goldberg hiding behind those bushes outside?"
+    w "Is Ashton Kutcher or Jason Goldberg hiding behind those bushes outside?"
     show dominic happy blush
     d "What? No, I’m not the type of guy who jokes around with love. A man who
     doesn’t tell his feelings and doesn’t stay true to his heart is a coward.
@@ -240,13 +255,13 @@ label day3morn:
     w "Just go up to the counter and tell the cashier that you want to buy me a drink.
     She knows my order."
     d "Anything for you Wren."
-    show dominic at pos3 with ease
+    show dominic at pos2 with ease
     hide dominic with easeoutleft
     pause 1.0
     show wren thinking
     "Oh God, did I just get a new pet? Do I smell extra nice today or something?
     I feel like shit so probably not. And how has he not seen the bags under my eyes?
-    Maybe he has eye problems…"
+    Maybe he has eye problems..."
     show wren reg
     show dominic happy at pos2 with easeinleft
     d "Here’s your drink, Wren."
@@ -271,30 +286,36 @@ label day3morn:
     w "Aww~ you’re so cute."
     show dominic happy
     d "Thank you? Anyway, what type of food do you like?"
-    w "Well…"
+    w "Well..."
 
 ################################################################################
+    $ shuffle_menu()
     menu:
         "What food do I like?"
 
-        "Tamales.":
+        "Tamales":
             $ dominic_points += 1
+
             w "I like Tamales."
             d "Those are amazing! I know a really good mexican restaurant near my
             house if you wanna go with me sometime."
             w "You better be right or I’ll never forgive you."
-            hide wren
-            hide dominic
-        "Burgers.":
+            hide wren with dissolve
+            hide dominic with dissolve
+
+        "Burgers":
             $ dominic_points += 1
+
             w "I like Burgers."
             d "Those are amazing! I know a really good restaurant near my house if you
             wanna try it out with me. Their burgers will melt in your mouth."
             w "You better be telling or I’ll never forgive you for getting my hopes up."
-            hide wren
-            hide dominic
+            hide wren with dissolve
+            hide dominic with dissolve
+
         "{size=30}ข้าวไข่เจียว{/size}":
             $ somchai_points += 1
+
             w "{size=30}ผมชอบข้าวไข่เจียวนะ{/size}"
             show dominic reg
             d "I don’t have the slightest clue on what that could be."
@@ -303,26 +324,29 @@ label day3morn:
             d "Wow I didn't know you could speak squiggly lines."
             pause 1.0
             show wren reg
-            w "It’s thai…"
+            w "It’s thai..."
             d "Well I could probably make that for you if you wanted."
             show wren happy
-            w "Maybe…"
-            hide wren
-            hide dominic
-        "Anything edible." if persistent.ending_unlock:
-            $ somchai_points += 1
+            w "Maybe..."
+            hide wren with dissolve
+            hide dominic with dissolve
+
+        #"Anything edible" if somchai_points >= dominic_points:
+            #$ somchai_points += 1
+
             #[only if unlocked]
             #(Includes a secret scene)
+            #stop music fadeout 2.0
             jump flashback_1
 
 ################################################################################
 label day3dom:
 
-
+    stop music
     """
     Dominic and I sit and just casually talk while doing our homework together.
     He’s actually a really sweet guy. Very loud but sweet. He plays for the college’s
-    basketball team and does… something important I think.
+    basketball team and does... something important I think.
 
     I don’t really pay attention to guys running around with balls...{w}
     Wait not those kinds of balls...{w}the other ones.
@@ -360,13 +384,14 @@ label day3dom:
     hide wren with easeoutright
     "Wren opens the passenger side door and hopes in. Once Wren buckles up the car
     heads towards the coffee shop."
-
+    stop music fadeout 1.0
     scene blk
     show text "{size=50}Meanwhile...{/size}" at truecenter with fade
     pause 3.0
     hide text with fade
     scene bg05
     show dominic reg at pos5 with easeinleft
+    play music awkward
 
     "As Dominic walks towards his class all sweaty from playing ball with the boys
     something familiar catches his eye. He stops and hides behind the corner."
@@ -386,31 +411,39 @@ label day3dom:
     Yes, that’s a good plan."
     hide dominic with moveoutright
     show blk
-    "Dominic runs towards his bike and unlocks it. He hops on and rides after the two in the car…"
+    "Dominic runs towards his bike and unlocks it. He hops on and rides after the two in the car..."
     d "You can’t have him. Not on my watch!"
+    stop music
     scene bg15
+    play sound cafe fadein 3.0 loop
     show wren reg at pos4 with easeinleft
     show somchai reg at pos2 with easeinleft
     "Somchai and Wren pull up to the cafe and walk inside to order their drinks."
 
+################################################################################
+    $ shuffle_menu()
     menu:
         "What should I get this time?"
 
         "Caramel Macchiato":
             $ dominic_points += 1
+
             "Sometimes I just want to be covered in caramel sauce and live happily."
             w "I’ll have a caramel macchiato."
             s "Interesting… I guess a lot has changed since I’ve been gone."
             w "You have no idea."
             jump day3som
+
         "Cappuccino":
             $ somchai_points += 1
+
             "I’ve had enough sweets for today. I’ll just order something simple."
             w "I’ll have a cappuccino, please."
             s "I see things haven’t changed much."
             w "Well that’s not entirely true."
             jump day3som
 
+################################################################################
 label day3som:
 
     scene bg16
@@ -418,7 +451,6 @@ label day3som:
     show somchai sad at pos7dwn
     "After we order, we go find a place to sit to start the dreaded conversation
     I haven’t been looking forward to since yesterday."
-    stop music
     s "Are you okay Wren? You look like you haven’t gotten enough sleep. Did you
     have a nightmare again?"
     w "Yeah, but that’s not why we’re here. How are you going to make this better
@@ -434,10 +466,11 @@ label day3som:
     You always keep everything to yourself. You know I loved you. You could tell me anything...
     and yet you didn’t. You know that pissed me off."
     s "I know, and I’ve learned my lesson. But, I missed you everyday that I was gone."
-    w "So… tell me why you left me alone."
+    w "So... tell me why you left me alone."
     s "Well, remember the night I took you to the park to have a picnic date?"
     w "Yeah?"
-    show cg10
+    stop sound
+    #show cg06_2
     play music sweet
     s """
     Well that night I was supposed to tell you, but I was too scared to say anything.
@@ -453,8 +486,8 @@ label day3som:
     "This whole time he left because his parents needed to move back. Goddamn it
     Somchai! You should have told me this. It would have saved me so many tears
     and sleepless nights. You asshole."
-    show cg09
-    hide cg10
+    #show cg06_1
+    #hide cg06_2
     w """
     I’m so pissed you couldn’t tell me this. You know I would have been fine
     if you just told me like you should.
@@ -464,8 +497,8 @@ label day3som:
     You destroyed me Somchai, I always thought I was just not good enough.
     You made me think that I wasn’t worth it. Wasn’t worth anything to anyone.
     """
-    show cg10
-    hide cg09
+    #show cg06_2
+    #hide cg06_1
     s """
     Wren, I’m so sorry I did this to you. I regretted my decision every single day.
 
@@ -483,6 +516,7 @@ label day3som:
     pause 3.0
     hide text with fade
     scene bg15
+    play music awkward
 
     "After biking for about a mile or so, Dominic sees the car pull into the
     cafe parking lot and stops behind a building next to the cafe."
@@ -499,11 +533,17 @@ label day3som:
     show dominic angry
     d "Oh, that son of a bitch. Making Wren cry is unforgivable. I will make you pay!"
     "Dominic stands up and enters the cafe."
-    show cg10
+    show bg16 with dissolve
     hide dominic
+    show wren reg at pos3dwn
+    show somchai sad at pos7dwn
+    #show cg06_2
+    #hide dominic
     s "Wren please don’t cry."
-    "a moment later Dominic shows up out of nowhere."
-    show cg11
+    "A moment later Dominic shows up out of nowhere."
+    #show cg06_3
+    stop music
+    show dominic angry at pos1 with moveinleft
     d "What did you do to my Wren?"
     play music suspence
     w "Dominic?!"
@@ -521,13 +561,13 @@ label day3som:
     d "Former boyfriend? How could you let such an adorable and smart guy get away from you?"
     s "Well, I had family issues and had to move away."
     d "Oh that’s too bad. Well it’s nice that you’re still friends with him, right?"
-    s "I mean, I was…"
+    s "I mean, I was..."
     d "Don’t tell me you were going to try and get back together with him."
     "Oh gosh, I can sense the tension in the air. This isn’t going to end well...if it ends."
     s "Actually, I came here to apologize."
     d "Well, I hope it won’t take too long because we have another date later. And I have a lot planned for us."
     "Dominic ruffles Wren’s head a little then proceeds to caress his cheek."
-    s "Oh~, well, it shouldn’t…"
+    s "Oh~, well, it shouldn’t..."
     "I know that look in his eye. That’s the look of the precursor to an atomic
     bomb dropping. This definitely won’t end well."
     d "Well after yesterday’s date I needed more of him. And, after all this isn’t a date."
@@ -538,17 +578,28 @@ label day3som:
     Most of it Wren isn’t paying attention to until Somchai’s voice is heard over the fight."
     s "YEAH? WELL AT LEAST I’VE HAD SEX WITH HIM!!!  AND HE TOLD ME IT WAS THE BEST NIGHT OF HIS LIFE."
     "Oh hell no. I have to do something. People are staring. I don’t want to get kicked out of my favourite place."
+
+################################################################################
 label recall_1:
+    $ shuffle_menu()
     menu:
 
-        "Yell at Somchai to stop.":
+        "Oh hell no. I have to do something. People are staring. I don’t want to get kicked out of my favourite place."
+
+        "Yell at Somchai to stop":
             $ dominic_points += 1
+
             jump day3a
-        "Yell at Dominic to shut up.":
+
+        "Yell at Dominic to shut up":
             $ somchai_points += 1
+
             jump day3b
-        "EJECT!" if persistent.ending_unlock:
+
+        #"EJECT!" if somchai_points >= dominic_points:
+            #"Being tired of this, Wren gets up and walks out of the Café."
             #[only if unlocked]
             #(Includes a sex scene)
-            call day3c
-            jump recall_1
+            #jump day3c
+
+################################################################################

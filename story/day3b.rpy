@@ -2,19 +2,16 @@ label day3b:
 
     "Having enough of this \"my horse is better than your horse\" nonsense, Wren stands up and the two bickering hags stop yelling."
     show bg16 with hpunch
-    show wren angry at pos3
-    show somchai surprised at pos7dwn
-    show dominic surprised at pos2
     stop music
     w "Stop Dominic. I don’t remember agreeing to be your boyfriend.
     I’m trying to talk things over with my ex like an adult.
     I think you should leave for now. I’ll message you later."
-    d "But, what about our date?"
+    d "But what about our date?"
     "Wren just stares at Dominic with contempt."
     show dominic sad
     d "Never mind I understand. If you’re feeling better later just let me know."
     hide dominic with easeoutleft
-    "Dominic walks out of the cafe with his head down. If he had a tail it would probably be between his legs."
+    "Dominic walks out of the cafe with his head down. If he had a tail, it would probably be between his legs."
     show wren at pos3dwn with ease
     "Wren sits back down and looks at Somchai with the hate of a thousand suns."
     w "I cannot believe you would say that so loud and in public. Out of all the
@@ -23,7 +20,7 @@ label day3b:
     show somchai sad
     s "I’m sorry Wren. Something just came over me and I lost control of myself."
     "Wren grunts trying to not maintain eye contact with Somchai."
-    s "Wren what I did wasn’t right, in the past and now. But I…"
+    s "Wren what I did wasn’t right, in the past and now. But I..."
     "Somchai pauses for a moment and then speaks again."
     s "{size=30}สมฉายชอบวเรน์นะ{/size}"
     w "I don’t like you right now. Don’t pull that with me Somchai."
@@ -34,11 +31,10 @@ label day3b:
     w "Okay, sure."
     w "But, I need another cup of coffee first."
     s "I’ll get it for you."
-    show somchai happy at pos8 with ease
+    show somchai happy at pos7 with ease
     "Somchai gets up and orders Wren another coffee."
     hide somchai with easeoutleft
     scene bg20
-    $ persistent.unlock_bg9 = True
     "Once they have Wren’s drink, they leave towards the park. The sun is getting
     close to setting so the sky is giving off a beautiful pink and red color.
     They start walking through the park until they come to a bench."
@@ -50,7 +46,7 @@ label day3b:
     show wren at pos4dwn with ease
     "They both sit down on the bench."
     s "You know, from the day I left, I couldn’t get you out of my head.
-    After awhile, I couldn’t take it anymore, I had to be with you again.
+    After a while, I couldn’t take it anymore, I had to be with you again.
     After I realized I couldn’t live without you I told my parents about us."
     show wren surprised
     w "You did WHAT?!"
@@ -59,8 +55,8 @@ label day3b:
     show wren reg
     w "I can’t with you right now. What did they say?"
     s """
-    Actually…{w} they said they already knew. In thailand it’s more accepted to be gay or bi.
-    Something about Reincarnation…{w} and two souls being connected through different lives.
+    Actually...{w} they said they already knew. In Thailand it’s more accepted to be gay or bi.
+    Something about Reincarnation...{w} and two souls being connected through different lives.
 
     Anyway, at the time, they felt sorry for me but couldn’t do anything about it
     because my grandparents needed help. After a year or so, I was still struggling
@@ -72,11 +68,11 @@ label day3b:
     My parents noticed this, so they saved up some money and sent me back here to talk to you and see you again.
     """
     show wren surprised blush
-    w "Somchai…"
+    w "Somchai..."
     "I looked at Somchai and I could see the tears in his eyes."
-    s "Wren… please forgive me… I missed you … so much."
+    s "Wren… please forgive me... I missed you... so much."
     "At that moment Somchai grabbed Wren into a hug and started crying harder, into his shoulder."
-    w "Somchai...I…"
+    w "Somchai...I..."
     "Wren paused and waited for Somchai to stop crying."
     show wren happy blush
     w "Somchai, I forgive you."
@@ -90,12 +86,13 @@ label day3b:
     "Somchai continued to sniffle into Wren’s shoulder. After about five minutes
     they continued to walk around the park. Eventually, they got back to Somchai’s
     car, so he could take Wren home. Once the car ride was over Somchai parked and turned to Wren."
-    #scene bg23
-    #persisent.unlock_bg12 = True
-    w "Yes…?"
-    s "Um, Wren…"
-    w "Yesssss~…?"
-    s "Do you think that…{w} If you want…"
+    scene bg23
+    $ persistent.unlock_bg23 = True
+    $ renpy.notify("New Background Unlocked")
+    w "Yes...?"
+    s "Um, Wren..."
+    w "Yesssss~...?"
+    s "Do you think that…{w} If you want..."
     w "Oh my God, Somchai, just spit it out!"
     s "WOULD YOU POSSIBLY LIKE TO GET BACK TOGETHER WITH ME!"
     with hpunch
@@ -103,28 +100,28 @@ label day3b:
     Hell, I didn’t even know if he could yell."
     w "Well, I think that we should wait a bit on that. You just came back and
     I’m still trying to process everything. Plus, my life isn’t in the best shape it could be in."
-    s "Okay~ I can understand that. But… Would it be….possible?"
+    s "Okay~ I can understand that. But… Would it be...possible?"
     "I swear Somchai you haven’t changed much…"
-    w "Um~ only time will tell…I’m not certain because of how much is going on in my life."
-    w "However… If you prove to me that you are worthy of my love again… I might just forget this whole ghosting adventure you had."
+    w "Um~ only time will tell... I’m not certain because of how much is going on in my life."
+    w "However… If you prove to me that you are worthy of my love again... I might just forget this whole ghosting adventure you had."
     s "I would never ghost you!"
     "I stare at Somchai for a moment until he realizes what he just said"
-    s "I meant, I would never ghost you on purpose...{w}again."
+    s "I meant; I would never ghost you on purpose...{w}again."
     w "That’s more like it."
     s "Oh and one more question. Who the hell is this Dominic guy?"
     w "My most recent suitor."
     s "Your what?"
     w "He recently hit on me and wants to get to know me."
-    s "Then why did he say that he was your boyfriend…?"
-    "Oh my gosh somchai, you are so dense sometimes…"
-    w "He was trying to piss you off and in the process pissing me off because
+    s "Then why did he say that he was your boyfriend...?"
+    "Oh my gosh Somchai, you are so dense sometimes..."
+    w "He was trying to piss you off and, in the process, pissing me off because
     I’m not something to be owned. You see that power move he did by putting
     his arm around me? Yah, that was him marking his territory like a horny mutt."
     s "THAT BASTARD! I SHOULD GIVE HIM A PIECE OF MY MIND!"
-    w "If you try and fight him you’ll lose and I know it, so don’t try anything."
-    s "But…"
+    w "If you try and fight him, you’ll lose and I know it, so don’t try anything."
+    s "But..."
     w "No buts, now I will talk to you later. I need to get ready for class tomorrow."
-    "And tell the gang what the hell went down today…"
+    "And tell the gang what the hell went down today..."
     s "Okay. Well do you have the same number?"
     w "Yes I do."
     s "Okay I’ll text you later then."

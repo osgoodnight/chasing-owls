@@ -3,7 +3,7 @@ label day2:
     $ day += 1
     #[wren’s bedroom]
     scene bg01
-    play music theme
+    play music theme1
     "As the sun peeks through the curtains, wren wakes up on the floor."
     w """
     *groans* What the fuck happened?
@@ -12,16 +12,16 @@ label day2:
     """
     show wren reg at pos2 with easeinbottom
 
-    "Off in the other room wren hears a familiar sound"
+    "Off in the other room wren hears a familiar sound..."
     play sound owl
     o "*owl noises*"
     "There’s a sharp pain on the front of his head from hitting the door last
-    night, stinging as he gets up quickly"
+    night, stinging as he gets up quickly."
     show wren surprised
     w "Shit! Now I remember!"
     o "*Louder owl noises*"
     show wren reg
-    w "Okay! Okay! I’m coming! I’m sorry!"
+    w "Okay! Okay! I’m coming! I’m sorry! I know you cannot just let me live! I don’t starve you ungrateful brat!"
     hide wren with easeoutleft
     #[blk]
     scene blk
@@ -31,12 +31,13 @@ label day2:
     by raw meat anymore, then makes his way back to his secret room.
     """
 
-    #[show owl]
+    #show bg26
+    #$ persistent.unlock_bg26 = True
     show owl at owlcenter
 
     """
     This owl is the most spoiled thing in the world. I’m a butler of sorts.
-    I clean, feed and entertain them… with no thank you, I might add.
+    I clean, feed and entertain them... with no thank you, I might add.
 
     Ungrateful turd.
 
@@ -46,21 +47,22 @@ label day2:
     show wren reg at pos7 with easeinright
     play sound owl
     o "*owl noises*"
-    w "I love you too, buddy."
+    w "I love you too, buddy. Sorry I called you an ungrateful brat."
     "Okay maybe not one sided, but I do all the work still."
     "Kyran emerges from his ‘couch slumber’ and drags his body to the bathroom.
     He yells from the hallway."
     k "{b}I call dibs on shower first!{/b}"
     w "Guests first."
     k "{b}I’m going to take all the hot water on purpose!{/b}"
-    "Why is he so spicy today?"
+    "Why is he so spicy today? It's not my fault this clown I mean my best friend lovely Kryan also got drunk last night."
     w "You’ll die before you do."
     "I would never but I would think about it for just a second."
     k "{b}Try me bitch!{/b}"
-    w "You’re saucy when you’re hung over."
+    w " You try me. It’s my house. God, You’re saucy when you’re hung over."
     k "{b}I need coffee!{/b}"
-    "I am, honestly, a dead sack of potatoes right now, too."
-    w "Demanding… Fine I’ll put the kettle on."
+    "I am, honestly, a dead sack of potatoes right now, too. I have wobbly legs like spaghetti.
+    My posture straight as a rainbow. I may die if I do not get coffee soon."
+    w "Demanding... Fine I’ll put the kettle on."
     hide wren with easeoutright
     hide owl
     #[livingroom]
@@ -69,7 +71,7 @@ label day2:
     I was going to do that anyway, but I’ll let him feel like it was his decision.
 
     Even though, physically, I feel ill. Mentally I feel kind of okay...{w=1.0}
-    something's up…{w=1.0} I’m dying. I’m sure of it.
+    something's up...{w=1.0} I’m dying. I’m sure of it.
 
     While wren is making coffee, there’s music starting to come from the bathroom.
     Getting louder and louder with the song now distinguishable.
@@ -92,9 +94,9 @@ label day2:
     prepared exactly how he likes it."
     k "You know me so well, this is why I keep you around."
     w "That’s the only reason?"
-    "Not because of our beautiful duets?"
+    "Not because of our beautiful duets? Not because of our undying purely platonic friendship."
     k "No… but one of them, our duets are immaculate."
-    "There it is!"
+    "There it is! One of them at least."
     w "I mean we ‘aight."
     k "Go shower ya’ nasty, we have to get to class soon."
     w "So bossy. You know how I like it."
@@ -110,12 +112,14 @@ label day2:
 
     Next, I go to my last class, which means I can get home to do some homework,
     feed my child, and then can reunite with my sweet bed. Pretty straight forward,
-    I can do this no problem…{w} right?
+    I can do this no problem...{w} right?
+
+    Ready.{w} Set.{w} Go.{w} My plan is perfect. My mind  is immaculate.
 
     As the hot water drenched him and runs down his naked body, wren begins to
     feel the effects of the events of the night before.
 
-    I can do this. Everything is fine. deep breaths.
+    I can do this. Everything is fine. deep breaths. Like I said my plan is perfect.
 
     Wren fights through the nausea and finishes his shower.
     """
@@ -131,7 +135,7 @@ label day2:
     k "{b}10 MINUTES TILL LIFT OFF!!!{/b}"
     w "You don’t have to YELL!!!"
     k "Yes I do, because you don’t listen and if I don’t yell then later you’re
-    going to say \"WeLL I dIdN’t HeAr YoU sAY iT\"… I know you better than that. Go get ready."
+    going to say \"WeLL I dIdN’t HeAr YoU sAY iT\"... I know you better than that. Go get ready."
     w "Okay MOM~."
     #[livingroom]
     hide wren
@@ -152,7 +156,7 @@ label day2:
     "They quickly make their way to class."
     k "We left on time, how are we running late?"
     w "The universe hates us~"
-    k "I know but still, I did everything right."
+    k "I know but still, I did everything right. Goddammit Universe."
     w "It’s okay we aren’t even that late."
     k "If you are early you are on time, if you are on time you are late,
     if you are late you are dead."
@@ -172,12 +176,14 @@ label day2:
     That person looks familiar...No. It can’t be him. that’s impossible. He left.
     It was just some guy that kinda looked like him… a lot like him... but either way.
 
-    It couldn’t possibly be him.
+    It couldn’t possibly be him. If it is possible for it to be him there are two solutions: arson and muder.
+
+    Third Solution:  Just run. UHHHH WHY AM I FREAKING MYSELF OUT OVER NOTHING!
     """
     show wren surprised
     k "What are you looking at?"
     show wren reg
-    w "Nothing…"
+    w "Nothing..."
     k "I think you need more coffee."
     #[hallway]
     show bg07 with fade
@@ -202,81 +208,84 @@ label day2:
     body refuses to turn around and he freezes in place.
 
     Fuck. Fuck. Fuck. Fuck.{fast} Fuck. Fuck. Fuck. Fuck. I knew it, I fucking knew it.
-    Of course it would be him. This is the worst day of my life.
+    Of course it would be him.  Is it too late to run? This is the worst day of my life.
     """
+    play music suspense fadein 1.5
     show somchai surprised at pos8 with moveinright
+    $ persistent.somchai = True
+    $ renpy.notify("New Character Unlocked")
     show wren angry
-    s "ummm… hello Wren."
-    "If I move, I’ll die."
-    show cg06 with fade
+    s "ummm... hello Wren."
+    "If I move, I’ll die. If I speak MURDER might still be on the table."
+    #show cg04_3 with fade
     k "What are you doing here, Somchai?"
-    "Please tell me this is a joke...{w}a cruel joke."
-    show cg05
-    hide cg06
+    "Please tell me this is a joke...{w}a cruel joke.{w} He left...{w}he left."
+    #show cg04_2
+    #hide cg04_3
     s "I came to talk to Wren"
     "I’m about to scream and run away at the same time right now. this can’t be happening."
     s "Wren? Can we have a second?"
     "I don’t have control of my body right now"
-    show cg06
-    hide cg05
+    #show cg04_3
+    #hide cg04_2
     k "You had plenty of seconds before now buzz off!"
     "Kyran always coming in clutch"
-    show cg05
-    hide cg06
+    #show cg04_2
+    #hide cg04_3
     s "I’m just trying to talk to him for a bit. I want to explain myself."
-    "EXPLAIN?! NOW YOU DECIDE IT’S TIME TO EXPLAIN?!"
-    show cg06
-    hide cg05
+    "EXPLAIN?! NOW YOU DECIDE IT’S TIME TO EXPLAIN?! Now of all times!!!!"
+    #show cg04_3
+    #hide cg04_2
     k "You had your chance and you blew it."
-    show cg05
-    hide cg06
+    #show cg04_2
+    #hide cg04_3
     s "ky. Listen."
-    show cg06
-    hide cg05
+    #show cg04_3
+    #hide cg04_2
     k "Don’t call me that. It’s kyran… not ky."
     "He hates the nickname ‘ky’"
-    show cg05
-    hide cg06
+    #show cg04_2
+    #hide cg04_3
     s "Sorry. Kyran, I really just want to explain myself. I can see he’s...{w} broken...{w=0.5} right now-{nw}"
-    show cg04
-    hide cg05
-    w "I’m not broken. I’m pissed there’s a difference."
+    #show cg04_1
+    #hide cg04_2
+    w "I’m not broken. I’m pissed there’s a difference. You do not have the power to break me."
     "It took me lots of time and hard work to realize that."
-    show cg06
+    #show cg04_3
     k "He speaks!"
-    show cg05
-    hide cg04
+    #show cg04_2
+    #hide cg04_1
     s "Please. Let me explain everything. Please."
-    show cg04
-    hide cg05
+    #show cg04_1
+    #hide cg04_2
     w "I’m busy."
-    show cg05
-    hide cg04
+    #show cg04_2
+    #hide cg04_1
     s "Can I see you after class?"
-    show cg04
-    hide cg05
+    #show cg04_1
+    #hide cg04_2
     w "Can’t."
     "I don’t think I physically can..."
-    show cg05
-    hide cg04
+    #show cg04_2
+    #hide cg04_1
     s "Later today maybe? After you’re done with school."
-    show cg04
-    hide cg05
+    #show cg04_1
+    #hide cg04_2
     w "I’m Busy."
-    show cg05
-    hide cg04
+    #show cg04_2
+    #hide cg04_1
     s "Please. I’m begging you. Just let me explain.{w} I can do all the talking-"
-    show cg04
-    hide cg06
+    #show cg04_1
+    #hide cg04_3
     w "As you usually do."
-    show cg06
+    #show cg04_3
     k "Ooo~ burn."
-    show cg05
+    #show cg04_2
     s "I’m sorry, but please. I just want to give you an explanation. There’s a reason I had to leave. I swear. I will tell you everything!"
-    hide cg04 with dissolve
-    hide cg05 with dissolve
-    hide cg06 with dissolve
-    "Maybe I should hear him out? He never was the one to do things on a whim. There has to be a reason he walked away."
+    #hide cg04_1 with dissolve
+    #hide cg04_2 with dissolve
+    #hide cg04_3 with dissolve
+    "Maybe I should hear him out? He never was the one to do things on a whim. There has to be a reason he walked away. Maybe I am being unfair."
     w "Tomorrow. Around lunch. Café. 15 minutes. that’s all you get."
     s "That’s perfect. Thank you. I’ll see you tomorrow. I missed you wren."
     k "I swear somchai if wren wasn’t here I’d smite you right where you stand."
@@ -285,6 +294,7 @@ label day2:
     s "Later."
     #[somchai leaves]
     hide somchai with easeoutright
+    stop music fadeout 2.0
     show kyran happy
     k "Damn. Hit you with the verbal ‘k.’, see you never som."
     show wren sad
@@ -300,12 +310,14 @@ label day2:
     But I will say; don’t let him get to you. You became better without him. I know you can do it!
     """
 ################################################################################
+    $ shuffle_menu()
     menu:
 
         "Ugh~ what should I do?"
 
         "Go to the lecture with kyran":
             $ dominic_points += 1
+
             "I can do this. I’ll try and take my mind off it."
             k "I’m here for you my dude"
             w "You’re the best ky."
@@ -317,6 +329,7 @@ label day2:
 
         "Have some time alone in the car":
             $ somchai_points += 1
+
             w "Keys please. I’ll see you after class."
             k "Text me if you need anything."
             w "Thanks ky."
@@ -348,25 +361,26 @@ label after_som:
     show wren reg at pos3 with dissolve
     show kyran reg at pos5 with dissolve
     show tobias reg at pos8 with dissolve
+    play music theme1
     k "You'll never guess what just happened."
     w "UGH~!"
     t "Cut to the chase."
     k "Somchai is back!"
     show tobias angry
     t "WHAT?! WHY?! WHEN?!"
-    w "Where, how and who? He showed up before class. He wanted to explain himself. No big deal. There’s not fuss.
+    w "Where, how and who? He showed up before class. He wanted to explain himself. No big deal. Everything is just peachy. There’s not fuss.
     Now can we stop talking about this? Please."
     "Tobias looks visibly upset for some reason."
     show wren thinking
     t "This is a big deal. What the fuck happened? What did he say to you?"
     show wren surprised
     w "Nothing happened. He begged me to let him explain himself and I agreed to talk with him tomorrow over coffee.
-    That’s it. Now please, let it go."
+    That’s it. Now please, let it go. It does not involve you."
     show kyran surprised
     t "But why would you agree to this? Do you not remember what he did to you? All the pain you suffered because of him? Are you stupid?"
     k "Woah there, buddy. Calm yourself. Not right now."
     show wren angry
-    w "I’m not stupid…{w} completely. This conversation is over, if you continue talking about it, I’m leaving."
+    w "I’m not stupid...{w} completely. This conversation is over, if you continue talking about it, I’m leaving."
     t "Fine."
     show wren reg
     show tobias sad
@@ -382,7 +396,7 @@ label after_som:
     Tobias and Kyran stay behind Wren to talk to each other."
     hide wren with moveoutright
     show tobias reg at pos7 with easeinleft
-    show kyran reg at pos5 with easeinleft
+    show kyran reg at pos4 with easeinleft
     t "Was it something I said?"
     k "WaS iT sOmEthInG I sAiD? ARE YOU STUPID? Bro, just shut up and let it go.
     You’ll only make it worse with your ‘feelings’"
@@ -392,7 +406,7 @@ label after_som:
     dictate what he does and criticize what he wants.
 
     If you truly like him, you would let him be his own person and love him
-    unconditionally, like a true friend should.
+    unconditionally, like a true friend should. You do not own him.
     """
     t "I care about him.{w=1.0} That’s all."
     k """
@@ -417,7 +431,7 @@ label after_som:
 
     After an hour Wren is staring into the void.
 
-    I listened to every word this teacher has said and yet I’ve learned absolutely nothing…{w} another successful day in college I suppose.
+    I listened to every word this teacher has said and yet I’ve learned absolutely nothing...{w} another successful day in college I suppose.
 
     Lecture finally ends. kyran, tobias, and wren exit.
     """
@@ -452,8 +466,8 @@ label after_som:
     "Kyran and Tobias go their separate ways. "
     #[tree hangout]
     scene bg09
-    show evanora happy at pos3
-    show shaula happy at pos5
+    show evanora happy at pos2
+    show shaula happy at pos4
     "Wren approaches shaula and Evanora sitting outside under some light tree shade.
     It is nice outside so a lot of students are enjoying the sun and hanging out outside."
     show wren sad at pos7 with easeinright
@@ -462,7 +476,8 @@ label after_som:
     show evanora reg
     sh "Always! Is everything okay, no offense but you seem tense."
     e "You look like you’re about to cry."
-    w "I just might…{w} Somchai is back."
+    w "I just might...{w} Somchai is back."
+    stop music
     pause 3.0
     "Cricket noises"
     show evanora surprised
@@ -476,14 +491,14 @@ label after_som:
     w "He wants to explain himself."
     show shaula angry
     sh "The fucking nerves of that guy. What is wrong with him?"
-    w "I agreed to get coffee with I’m tomorrow..."
+    w "I agreed to get coffee with him tomorrow..."
     show shaula sad
     sh "Do you want us to go with you?"
     w "No. I can do this, I’m just... scared."
     show evanora reg
     e "Oh no. About what? He’s not very scary. I can take him. Easily."
     "Evanora cracks her knuckles."
-    w "I’m scared that my feelings for him will come back. I’m scared I’m gonna go back."
+    w "I’m scared that my feelings for him will come back. I’m scared I’m gonna go back. After everything I’m afraid I’ll go back."
     show evanora sad
     show shaula angry
     sh "I won’t let that happen. You worked too hard to get where you are now for you to just go back."
@@ -523,11 +538,36 @@ label after_som:
     "A large gorgeous man jogs towards the trio."
     show evanora angry
     show shaula happy
+
+################################################################################
+    $ shuffle_menu()
+    menu:
+
+        "Be upset.":
+            $ somchai_points += 1
+
+            w "Thant fucking hurt, what the hell!"
+
+            jump frisbee_hit
+
+        "Be Understanding.":
+            $ dominic_points += 1
+
+            "Ow~, that hurt."
+
+            jump frisbee_hit
+
+################################################################################
+
+label frisbee_hit:
+
     d "My bad, I was only hoping to get your attention, not hit you. I’m really sorry."
-    w "That’s your version of flirting? I think you need to work on that."
+    w "That’s your version of flirting? I think you need to work on that because yikes."
     show dominic happy at pos9 with easeinright
+    $ persistent.dominic = True
+    $ renpy.notify("New Character Unlocked")
     pause 2.0
-    show cg08
+    #show cg05_2
     """
     After rubbing the back of his head he turns to look at the culprit.
 
@@ -541,21 +581,24 @@ label after_som:
     His freckles stand out from the rest of his skin tone.
     """
 
-    d "Oh, um, let me try again. Uh~.{w} Hi.{w=1.0} My name is dominic, and I really like your face…{w} Better?"
+    d "Oh, um, let me try again. Uh~.{w} Hi.{w=1.0} My name is Dominic, and I really like your face...{w} Better?"
+    play music theme1
     "He’s hot. He doesn’t even need to flirt, honestly."
-    show cg07
+    #show cg05_1
     w "A little, but still… you might need to work on that."
-    "Holy hell, dominic is a hot name."
-    show cg08
+    "Holy hell, Dominic is a hot name."
+    #show cg05_2
+    #hide cg05_1
     d "I really am sorry. I wasn’t trying to hit you but I was hoping for an excuse to come talk to you."
-    show cg07
+    #show cg05_1
+    #hide cg05_2
     w "That’s a little better."
     w "I’m Wren."
     "Please. take me right now. Scoop me up in those manly arms and save me from this day."
-    show cg08
+    #show cg05_2
     d "Wren! Cute. Well it’s very nice to meet you. Can I take you out tomorrow?"
-    hide cg07 with dissolve
-    hide cg08 with dissolve
+    #hide cg05_1 with dissolve
+    #hide cg05_2 with dissolve
     show wren happy blush
     show shaula surprised
     show evanora surprised
@@ -582,7 +625,7 @@ label after_som:
 
     Wren puts his phone number in and saves it as \"Wren\" with the car, heart eyes, and target emoji.
 
-    He hands the phone back to dominic.
+    He hands the phone back to Dominic.
     """
 
     d "Cute. I like it."
@@ -590,10 +633,10 @@ label after_som:
     "Dominic puts his hand out gesturing towards the phone. He saves it as \"Dominic\" with the eggplant emoji."
     show wren embarrassed
     d "Gives you something to think about."
-    "Cocky little son of a bitch. I like it."
+    "Cocky little son of a bitch. I like it. It's very saucy and presumptuous of him."
     d "I’ve gotta go. I’ll see you tomorrow."
     hide dominic with moveoutright
-    "Dominic jogs off. With his huge ass bouncing in his shorts, leaving nothing to the imagination."
+    "Dominic jogs off. With his huge ass bouncing in his shorts, leaving nothing to the imagination. God he’s hooootttt!!!!!!"
     show wren happy blush
     w "I’ve spoken 5 sentences to this man and I already want to have his children."
     e "You can’t birth children."
@@ -638,10 +681,17 @@ label after_som:
     I would never in a million years think something like this would happen. Stuff like this only happens in movies{w} and BL visual novels.
     """
     #[Cafe]
+    window hide
     scene bg15 with fade
+    pause 2.0
+    scene bg19 with fade
+    $ persistent.unlock_bg19_21 = True
     pause 2.0
     show blk with fade
     hide bg15
+    hide bg19
+    window show
+
     """
     Wren makes a stop at the café, and then at the dog park to watch the puppers run around playing.
 
@@ -651,12 +701,15 @@ label after_som:
     """
     #[wren’s living room]
     show bg04 with fade
-    hide blk
     show wren reg at pos7 with easeinright
     "He enters his living room and hears his owl making a ruckus in the room."
-    play sound owl loop
+    play sound owl
+    show blk
     hide wren with moveoutleft
-    show blk with fade
+    hide bg04
+    #show bg26 with fade
+    stop music fadeout 6.0
+    play music suspense
     """
     Wren grabs the food and makes his way to the owl’s locked room{w}, or so he thought.
 
@@ -666,10 +719,11 @@ label after_som:
 
     Kyran is there feeding the owl.
     """
+    stop music
     stop sound
     show owl at owlcenter with dissolve
-    show kyran reg at pos3 with dissolve
-    show wren surprised at pos8 with moveinright
+    show kyran reg at pos2 with dissolve
+    show wren surprised at pos9 with moveinright
     k """
     Oh hey! You’re finally home.
 
@@ -719,7 +773,7 @@ label after_som:
     play music night
     show wren reg at pos7 with easeinleft
     "Wren quickly finishes his routine and gets ready for bed."
-    hide wren with easeoutbottom
+    show black with fade
     "Moments getting into bed he receives a SMS."
     play sound sms
     w "Oh, it’s dominic."
@@ -754,7 +808,7 @@ label after_som:
 
     After tossing and turning for a while, his exhaustion finally catches up. Wren eventually finds sleep.
     """
-    show blk with fade
-    stop music fadeout 1.0
+
+    stop music fadeout 3.0
     #day 2 ends.#
     jump day3

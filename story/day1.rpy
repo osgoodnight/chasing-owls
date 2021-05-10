@@ -1,16 +1,21 @@
 label day1:
 
     default persistent.ending_unlock = False
+    $ persistent.gallery_unlock = True
     #Wren in bedroom
     scene bg01
-    $ persistent.unlock_bg1 = True
+    $ persistent.unlock_bg1_2 = True
+    $ renpy.notify("New Background Unlocked")
     stop music fadeout 1.0
     pause 1
     play sound alarm
     show bg01 with hpunch
     "Why is it already morning???"
 ###############################################################################
+    $ shuffle_menu()
     menu:
+        "Should I wake up?"
+
         "Press snooze":
 
             $ dominic_points += 1
@@ -24,7 +29,7 @@ label day1:
 
 	        Wren falls asleep again rather quickly.
 
-            A few moments later…
+            A few moments later...
             """
             pause 2
             play sound alarm
@@ -52,10 +57,12 @@ label after_alarm:
     w "Fucking piece of shit phone..."
     "Wren then stands up to find his phone now on the floor."
     stop sound
-    show wren reg at pos5 with easeinbottom
+    show wren angry at pos5 with easeinbottom
+    $ persistent.wren = True
+    $ renpy.notify("New Character Unlocked")
     w "Well I’m awake now."
-    hide wren reg with easeoutleft
-    play music theme
+    hide wren with easeoutleft
+    play music theme1
     show blk
     play sound shower
     """
@@ -75,7 +82,8 @@ label after_alarm:
     "After his shower. Wren throws on his go-to-outfit."
     #wren's living room
     show bg03
-    $ persistent.unlock_bg2 = True
+    $ persistent.unlock_bg3_4 = True
+    $ renpy.notify("New Background Unlocked")
     hide bg01
     show wren reg at pos3 with moveinleft
     "Gathering his belongings that are thrown around his room."
@@ -83,7 +91,9 @@ label after_alarm:
     #Kyran enters
     play sound door
     pause 3.0
-    show kyran reg at pos7 with easeinright
+    show kyran reg at pos6 with easeinright
+    $ persistent.kyran = True
+    $ renpy.notify("New Character Unlocked")
     """
     Kyran enters with his key that Wren gave to him the first day after moving into his new place.
 
@@ -95,9 +105,9 @@ label after_alarm:
     show wren surprised with hpunch
     pause 2
     show wren reg
-    hide wren reg
-    hide kyran reg
-    show cg02
+    #hide wren reg
+    #hide kyran reg
+    #show cg02
     """
     This is Kyran. I couldn’t get rid of him as a kid.
 
@@ -119,7 +129,9 @@ label after_alarm:
     #Wren kyran @ café
     scene bg15
     play sound cafe fadein 3.0 loop
-    $ persistent.unlock_bg8 = True
+    $ persistent.unlock_bg15_16 = True
+    $ renpy.notify("New Background Unlocked")
+
     """
     Kyran and I head to the café.
 
@@ -128,11 +140,12 @@ label after_alarm:
     We walk into the café, ready to order.
     """
     show wren thinking at pos4 with moveinleft
-    show kyran reg at pos2 with moveinleft
+    show kyran reg at pos1 with moveinleft
 
 ################################################################################
-
+    $ shuffle_menu()
     menu:
+
         "Hmmm... what should I get?"
 
         "Hot coffee":
@@ -151,13 +164,13 @@ label after_alarm:
 
 label after_coffee1:
     scene bg16
+    show kyran reg at pos6
+    show wren reg at pos3
     """
     After I ordered, Kyran ordered his coffee and we sat inside for a bit of sipping of the coffee.
 
     Watching people pass by through the window. Kyran stares at a guy.
     """
-    show kyran reg at pos7 with moveinleft
-    show wren reg at pos3 with moveinleft
     pause 1
     show kyran happy
     pause 2
@@ -184,7 +197,7 @@ label after_coffee1:
     w "Because I don’t want to."
     "He is kind of cute though."
     k "But why not?"
-    w "It’s too early for this. I’m trying to enjoy my coffee before having to deal with today"
+    w "It’s too early for this. I’m trying to enjoy my coffee before having to deal with today."
     "I just don’t want to talk about boys with Kyran right now. I haven’t mentally prepared."
     k "Ugh. Fine. Ready for school now that you have some caffeine in your system?"
     show wren reg
@@ -204,8 +217,11 @@ label after_coffee1:
     """
     #enters wren, kyran and tobias @ front of school
     scene bg05 with fade
-    $ persistent.unlock_bg3 = True
+    $ persistent.unlock_bg5_6 = True
+    $ renpy.notify("New Background Unlocked")
     show tobias happy at pos2
+    $ persistent.tobias = True
+    $ renpy.notify("New Character Unlocked")
     show wren happy at pos6 with moveinright
     show kyran reg at pos8 with moveinright
     t "What took you guys so long?"
@@ -216,11 +232,11 @@ label after_coffee1:
     t "That’s your excuse for everything."
     "It gets ugly when I don’t have coffee, you don’t want to know."
     w "Do you want me to come here without my coffee?"
-    t "I’d rather die first"
-    hide tobias
-    hide wren
-    hide kyran
-    show cg01
+    t "I’d rather die first!"
+    #hide tobias
+    #hide wren
+    #hide kyran
+    #show cg01
     """
 	Tobias. Sweet, sweet Tobias. Confused little Tobias.
 
@@ -234,7 +250,7 @@ label after_coffee1:
 
     He is always there for me and is one of my friends that I can be weird with and relax.{w} He must be protected at all costs.
     """
-    hide cg01
+    #hide cg01
     show tobias reg at pos2
     show kyran reg at pos6
     show wren happy at pos4
@@ -291,7 +307,7 @@ label after_coffee1:
     They need someone better. Someone that’s not me.
     """
     k "I know and I’m sorry for bringing this up. I just want you to think about it please. For me?"
-    stop music
+    stop music fadeout 3.0
     show wren reg
     w "For you I’ll think about it."
     "You couldn’t have brought this up earlier, I would’ve spiked my coffee too."
@@ -301,12 +317,13 @@ label after_coffee1:
     w "I know, but I really wish I wasn’t fully conscious for this."
     k "We can talk more when I come over to your place later. I’ve gotta go."
     w "Bring a bottle of tequila, I’m gonna need it."
-    play music theme
+    play music theme1
     # wren and tobias in class, seated
     scene blk with fade
     pause 2
     scene bg13 with fade
-    $ persistent.unlock_bg7 = True
+    $ persistent.unlock_bg13_14 = True
+    $ renpy.notify("New Background Unlocked")
     show wren thinking at pos3dwn
     show tobias reg at pos6dwn
 
@@ -342,7 +359,7 @@ label after_coffee1:
     *Sighs*{w} Better.
     """
 
-    "Tobias responds in a very snappy, frustrated manner"
+    "Tobias responds in a very snappy, frustrated manner."
     show tobias thinking
     t "Would you stop thinking about him? I thought you were over him?!"
     w "I am! But I still remember him."
@@ -350,20 +367,23 @@ label after_coffee1:
     show tobias happy
     t "Well forget about him, I’m here for you."
     w "I know you are, thanks for being such a good friend."
-    "Tobias is always there for me, he keeps my thoughts collected and clear"
-    "Tobias speaks in a soft tone, almost a whisper"
+    "Tobias is always there for me, he keeps my thoughts collected and clear."
+    "Tobias speaks in a soft tone, almost a whisper."
     show tobias sad
     t "{size=12}Yeah a good {i}friend{/i}{/size}."
-    teach "Hello class, please take your seats and let's begin. Let’s pick up where we left off…"
+    teach "Hello class, please take your seats and let's begin. Let’s pick up where we left off..."
+    window hide
     scene blk with fade
     pause 2
     scene bg11 with fade
-    $ persistent.unlock_bg6 = True
+    $ persistent.unlock_bg11_12 = True
+    window show
     #Class ends.
     "Once the professor ended the lecture, they walked out of the class into the hallway."
     #wren tobias in hallway1
-    show bg07 with fade
-    $ persistent.unlock_bg4 = True
+    show bg07 with dissolve
+    $ persistent.unlock_bg7_8 = True
+    $ renpy.notify("New Background Unlocked")
     hide bg13
     show tobias reg at pos6 with easeinleft
     show wren reg at pos2 with moveinleft
@@ -377,7 +397,7 @@ label after_coffee1:
     show wren reg
     t "Lates my dude."
     show tobias sad
-    pause 3
+    #pause 3
     "Tobias looked at me with an expression I haven’t quite figured out yet."
     hide tobias with easeoutright
     "After Tobias turns and heads to his next class, I turn and walk the opposite
@@ -386,18 +406,23 @@ label after_coffee1:
     pause 1
     #hangout tree with Shaula and Evanora
     scene bg09
-    $ persistent.unlock_bg5 = True
+    $ persistent.unlock_bg9_10 = True
+    $ renpy.notify("New Background Unlocked")
     show evanora happy at pos2
+    $ persistent.evanora = True
+    $ renpy.notify("New Character Unlocked")
     show shaula happy at pos4
+    $ persistent.shaula = True
+    $ renpy.notify("New Character Unlocked")
     "Wren walks up to the two standing waiting for him."
-    show wren happy at pos6 with easeinright
+    show wren happy at pos7 with easeinright
     w "’Sup bitches."
     e "Look what the cat dragged in!"
     w "Can you fucking not?"
-    hide wren
-    hide shaula
-    hide evanora
-    show cg03 with fade
+    #hide wren
+    #hide shaula
+    #hide evanora
+    #show cg03 with fade
     """
     This is Evanora, she’s a lesbian without knowing it.
 
@@ -430,7 +455,7 @@ label after_coffee1:
     scene bg09
     show evanora happy at pos2
     show shaula happy at pos4
-    show wren happy at pos6
+    show wren happy at pos7
     w "Is it almost finals yet?"
     e_sh "I wish!"
     sh "Did you wanna talk about it? You know you can tell us anything
@@ -441,7 +466,7 @@ label after_coffee1:
     "Only forwards steps from here on out. Never to turn back!"
     e  "You got it dude!"
     sh "I don’t even know what you’re talking about?"
-    w "Thanks guys…{w} gals…{w} people???"
+    w "Thanks guys...{w} gals...{w} people???"
 
     "The three erupt into laughter."
 
@@ -473,7 +498,7 @@ label after_coffee1:
     sh "Want your regular?"
     w "Claro qué si!"
     "Shaula’s the best."
-    stop music
+    stop music fadeout 5.0
     #Shaula leaves
     hide shaula with moveoutleft
     e "You sure everything is okay?"
@@ -492,7 +517,7 @@ label after_coffee1:
     "You never want to be on her bad side. I love having her on my side.
     She makes things easier to deal with."
     e "Just give me a call and I will be there, no questions asked."
-    play music theme
+    play music theme1 fadein 3.0
     #Shaula Enters
     show shaula happy behind evanora at pos4 with moveinleft
     sh "Here’s your coffee. Ready for class?"
@@ -514,23 +539,23 @@ label after_coffee1:
     hide wren with moveoutleft
     scene bg11
     #wren classroom
-    teach "Good afternoon class, today we will be talking about the theory of teaching…"
-    stop music
+    teach "Good afternoon class, today we will be talking about the theory of teaching..."
+    stop music fadeout 4.0
     "I’ve already forgotten everything this man has said. I should’ve maybe written notes. Oops."
 
     """
-    30 more minutes…{w}
+    30 more minutes...
 
-    20 more minutes…{w}
+    20 more minutes...
 
-    15 more minutes…{w}
+    15 more minutes...
 
-    10 more minutes…{w}
+    10 more minutes...
 
-    5 more minutes…
+    5 more minutes...
     """
     "Come on! It's time to go. End lecture already. Please for the love of everyth-{w} 1:45 KTHNXBYE!!{nw}"
-    play music theme
+    play music theme1
     "Wren made it through the lecture.{fast} Quietly gathering his things, walks off into the hallway and
     makes his way out of the building."
     #wren in hallway2
@@ -550,7 +575,7 @@ label after_coffee1:
     I can truly think about the void if I wanted to. It clears my mind after school
     and prepares me to be tired to actually relax at home."
     #street
-    stop music
+    stop music fadeout 2.0
     scene blk
     play sound footsteps loop
     "After walking for a while Wren sees Kyran’s car parked in front of his place."
@@ -562,7 +587,7 @@ label after_coffee1:
     show kyran reg at pos2
     show wren reg at left with moveinright
     hide wren
-    play music theme
+    play music theme1
     "Ignoring Kyran in the living room, he throws his backpack onto the couch and then heads straight for the fridge.
     There he grabs two beers then opens them. Kyran, upset that he hasn’t said a word yet, stares intently at Wren."
     play sound opencan
@@ -576,12 +601,12 @@ label after_coffee1:
 
     Not that you’re a child... but it’s not your fault, you’re just caught in the middle of everything and I’m sorry for putting you in that position.
     """
-    k "Thanks for reassuring me… So…"
+    k "Thanks for reassuring me... So..."
     w "This makes no sense, why now?"
     k "I don’t know why now, but it’s happening. I’m sorry this is happening but i'll be there the whole way, promise."
     w "Thanks. This is going to be just another long drawn out semester."
     k "I’ll drink-to that!"
-    scene bg04
+    scene bg04 with dissolve
     show wren reg at pos5dwn
     show kyran reg at pos2dwn
     """
@@ -639,14 +664,16 @@ label after_coffee1:
     show bg02
     hide bg04
     #wren in bedroom
+    play music night
     show wren happy blush at pos8 with easeinleft
     "Wren makes his way to his room. Surprising even himself, he decided to just strip completely. Then he hears a familiar noise."
     play sound owl
     o "WHO~ WHO~"
-    "Shit. Did I forget to feed him when I got home? He’s around here somewhere…"
+    "Shit. Did I forget to feed him when I got home? He’s around here somewhere..."
     hide wren with moveoutleft
     show blk
     play sound fallen
+    stop music
     "Wren runs into the door and knocks himself out."
     #wren falls
     "Waking up a few moments later to finish his final task before bed."

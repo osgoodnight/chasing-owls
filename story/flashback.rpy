@@ -1,10 +1,13 @@
 label flashback_1:
-
-    scene blk
-    show text "{size=50}Several Years Earlier{/size}" at truecenter with fade
+    window hide
+    stop music
+    show blk
+    show text "{size=50}Several Years Earlier{/size}" at truecenter
     pause 3.0
     hide text with fade
     scene blk
+    window show
+    play music romantic fadein 2.0
     "...come on Wren. Just tell me what you want to eat!"
     "I don’t know what I want to eat, that's the problem."
     "Anything edible, really. Most foods are edible."
@@ -12,7 +15,7 @@ label flashback_1:
     "What did you say?"
     "Nothing."
     #Wren and Somchai at restaurant
-    #show extra1
+    #show cgsecret1_1
     #hide blk
     s "Please for the sake of my sanity, choose something!"
     w "What are you getting?"
@@ -39,7 +42,7 @@ label flashback_1:
     s "That’s it. I’m going to the bathroom."
     #blk
     #show blk
-    #hide extra1
+    #hide cgsecret1_1
     "Somchai gets up from his seat and goes into the bathroom."
     w "Called it."
     "Well, I guess that’s my cue to go in there and talk him out of the stall."
@@ -53,7 +56,7 @@ label flashback_1:
     s "Exactly."
     "I head towards his voice near the last stall in the bathroom."
     w "Found you."
-    #show extra2
+    #show cgsecret1_2
     #hide blk
     "I push the door open and push Somchai further into the stall."
     w "When are you going to learn this has the opposite effect of what you want."
@@ -63,8 +66,8 @@ label flashback_1:
     s "Shut up…"
     w "If you wish, master."
     s "Wren n-"
-    #show extra3
-    #hide extra2
+    #show cgsecret1_3
+    #hide cgsecret1_2
     "Wren pushes Somchai against the stall’s wall and place his lips on his. Somchai fights back a bit from the shock but relaxes and gives into the moment."
     "Wren wraps his arms around Somchai’s shoulders and neck. In return, Somchai lowers his hands to Wren’s lower back."
     "After several moments of passionate kissing…"
@@ -74,10 +77,11 @@ label flashback_1:
     s "Haa~"
     w "I’ll see you in 5 minutes."
     s "You~"
-    show blk
-    #hide extra3
+    #show blk
+    #hide cgsecret1_3
     "Wren closes the door behind him and goes back to their table."
     w "Finally, now I can take my time to order."
+    stop music fadeout 2.0
     # back to day 3
     show bg16
     show dominic reg at pos3dwn
@@ -90,6 +94,8 @@ label flashback_1:
     d "Huh? Why."
     w "I hate when people rush me when I’m ordering."
     d "Well, that’s… a way to do that…"
+    stop music fadeout 2.0
+    play music theme1
 
 
     jump day3dom
