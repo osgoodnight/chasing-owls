@@ -32,11 +32,11 @@ translate spanish strings:
 
     # game/screens.rpy:640
     old "Version [config.version!t]\n"
-    new "Versión"
+    new "Versión [config.version!t]\n"
 
     # game/screens.rpy:646
     old "Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"
-    new "Hecho con Ren'Py"
+    new "Hecho con {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"
 
     # game/screens.rpy:674
     old "Save"
@@ -48,7 +48,7 @@ translate spanish strings:
 
     # game/screens.rpy:688
     old "Page {}"
-    new "Página"
+    new "Página {}"
 
     # game/screens.rpy:688
     old "Automatic saves"
@@ -120,7 +120,7 @@ translate spanish strings:
 
     # game/screens.rpy:831
     old "Unseen Text"
-    new "Texto de desapercibido"
+    new "Texto de Desapercibido"
 
     # game/screens.rpy:832
     old "After Choices"
@@ -132,7 +132,7 @@ translate spanish strings:
 
     # game/screens.rpy:846
     old "Text Speed"
-    new "velocidad de Texto"
+    new "Velocidad de Texto"
 
     # game/screens.rpy:850
     old "Auto-Forward Time"
@@ -272,23 +272,23 @@ translate spanish strings:
 
     # game/screens.rpy:1152
     old "Mouse Wheel Up\nClick Rollback Side"
-    new ""
+    new "Mueve hacia arriba la ruleta del ratón\nHaga clic en Rollback Side"
 
     # game/screens.rpy:1156
     old "Mouse Wheel Down"
-    new ""
+    new "Rueda del mouse hacia abajo"
 
     # game/screens.rpy:1164
     old "Right Trigger\nA/Bottom Button"
-    new ""
+    new "Gatillo derecho\nA/Boton del Fondo"
 
     # game/screens.rpy:1168
     old "Left Trigger\nLeft Shoulder"
-    new ""
+    new "Gatillo izquierdo\nHombro izquierdo"
 
     # game/screens.rpy:1172
     old "Right Shoulder"
-    new ""
+    new "Hombro derecho"
 
     # game/screens.rpy:1177
     old "D-Pad, Sticks"
@@ -300,7 +300,7 @@ translate spanish strings:
 
     # game/screens.rpy:1185
     old "Y/Top Button"
-    new "Y/Botón superior"
+    new "Y/Botón Superior"
 
     # game/screens.rpy:1188
     old "Calibrate"
@@ -332,6 +332,34 @@ translate spanish strings:
 
     old "{b}Day [day]{/b}"
     new "{b}Día [day]{/b}"
+
+    old "{size=30}Start{/size}"
+    new "{size=30}Empezar{/size}"
+
+    old "{size=30}Save{/size}"
+    new "{size=30}Ahorrar{/size}"
+
+    old "{size=30}Load{/size}"
+    new "{size=30}Carga{/size}"
+
+    old "{size=30}Galleries{/size}"
+    new "{size=30}Galerias{/size}"
+
+    old "{size=30}Preferences{/size}"
+    new "{size=30}Preferencias{/size}"
+
+    old "{size=30}Help{/size}"
+    new "{size=30}Ayudar{/size}"
+
+    old "{size=30}About{/size}"
+    new "{size=30}Descripción{/size}"
+
+    old "{size=30}Back{/size}"
+    new "{size=30}Atrás{/size}"
+
+    old "{size=30}Close{/size}"
+    new "{size=30}Cerrar{/size}"
+
 # TODO: Translation updated at 2020-09-18 09:27
 
 translate spanish strings:
@@ -339,3 +367,64 @@ translate spanish strings:
     # game/screens.rpy:839
     old "Language"
     new "Idioma"
+
+### Sprite Translations ########################################################
+
+    old "Unknown Voice"
+    new "Voz Desconocido"
+
+    old "Author"
+    new "El Autor"
+
+    old "Figure"
+    new "La Figura"
+
+    old "Owl"
+    new "El Búho"
+
+    old "Teacher"
+    new "El Profesor"
+
+    old "Nurse"
+    new "El Enfermero"
+
+    old "Doctor"
+    new "El Médico"
+
+### Music Translations ########################################################
+
+    old "{size=28}{b}Theme 1{/b}{/size}"
+    new "{size=28}{b}Tema 1{/b}{/size}"
+
+    old "{size=28}{b}Sweet Moments{/b}{/size}"
+    new "{size=28}{b}Dulces Momentos{/b}{/size}"
+
+    old "{size=28}{b}Suspense{/b}{/size}"
+    new "{size=28}{b}Suspenso{/b}{/size}"
+
+    old "{size=30}{b}|<<Prev{/b}{/size}"
+    new "{size=30}{b}|<Previo{/b}{/size}"
+
+    old "{size=30}{b}Stop{/b}{/size}"
+    new "{size=30}{b}Pausa{/b}{/size}"
+
+    old "{size=30}{b}Play{/b}{/size}"
+    new "{size=30}{b}Jugar{/b}{/size}"
+
+    old "{size=30}{b}Next>>|{/b}{/size}"
+    new "{size=30}{b}Después>|{/b}{/size}"
+# TODO: Translation updated at 2021-05-08 17:06
+
+translate spanish strings:
+
+    # game/screens.rpy:674
+    old "{size=70}Character Gallery{/size}"
+    new "{size=70}Galería de personajes{/size}"
+
+    # game/screens.rpy:904
+    old "Notifications"
+    new "Notificaciones"
+
+    # game/screens.rpy:905
+    old "On"
+    new "Encendido"
