@@ -1,4 +1,4 @@
-﻿## This file contains options that can be changed to customize your game.
+## This file contains options that can be changed to customize your game.
 ##
 ## Lines beginning with two '#' marks are comments, and you shouldn't uncomment
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
@@ -23,7 +23,7 @@ define gui.show_name = False
 
 ## The version of the game.
 
-define config.version = "1.00"
+define config.version = "1.01"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -40,13 +40,19 @@ define gui.about = _p("""Once Wren finally was able to get into the swing of thi
 
  Anthony Osgood... Director/ Coding
 
- Karla Olaguez... Story
+ Karla Olaguez... Script (Days 1-2)
+
+ Taylor Marshall... Script (Days 4~)
 
  Brenna Kreps... Sprites/ CG's
 
  Jennyfer Calderon... Backgrounds
 
  Raven Simon... Music/ Audio
+
+ {b}Ghost Writers:{/b}
+
+ Anthony Osgood... Day 3
 
  {b}Translators:{/b}
 
@@ -75,7 +81,7 @@ define config.has_voice = False
 ## To allow the user to play a test sound on the sound or voice channel,
 ## uncomment a line below and use it to set a sample sound to play.
 
-# define config.sample_sound = "sample-sound.ogg"
+define config.sample_sound = "audio/footsteps.mp3"
 # define config.sample_voice = "sample-voice.ogg"
 
 
@@ -83,7 +89,7 @@ define config.has_voice = False
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-define config.main_menu_music = "audio/sweet_moments.mp3"
+define config.main_menu_music = "audio/suspense.mp3"
 
 
 ## Transitions #################################################################
@@ -144,7 +150,7 @@ init python:
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 55
+default preferences.text_cps = 50
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
